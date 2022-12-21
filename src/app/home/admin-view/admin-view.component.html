@@ -134,7 +134,7 @@
                           
                            accept="image/*" (change)="processFile(imageInput)"
                             >
-                </div>
+                </div><br>
                 <div *ngIf="selectedFile" class="img-preview-container">
 
                     <div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"

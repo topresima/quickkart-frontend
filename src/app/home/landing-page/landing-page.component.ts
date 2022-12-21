@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NotifierService } from 'angular-notifier';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -44,7 +44,7 @@ loggedInUser:LoggedInUser=null
     {title: 'Second Slide', short: 'Second Slide Short', src: "assets/Product_Images/carousel5.jpg"},
     {title: 'Third Slide', short: 'Third Slide Short', src: "assets/Product_Images/carousel6.jpg"}
   ];
-  constructor(config: NgbCarouselConfig,private service: HomePageService,private active_route: ActivatedRoute, notifierService: NotifierService,public dialog: MatDialog, public loginDialog:MatDialog) {
+  constructor(config: NgbCarouselConfig,private router: Router,private service: HomePageService,private active_route: ActivatedRoute, notifierService: NotifierService,public dialog: MatDialog, public loginDialog:MatDialog) {
     config.interval = 1500;
     config.keyboard = true;
     config.pauseOnHover = true;
@@ -76,10 +76,10 @@ loggedInUser:LoggedInUser=null
   }
 
 
+  Buy(p:IProduct){
+    this.router.navigate(['/payment', p.productID,p.productPrice,p.productName]);
+  }
   //this method will run when the add membership will be clicked
-
-
-
 
 
 }

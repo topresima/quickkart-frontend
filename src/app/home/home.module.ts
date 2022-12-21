@@ -22,9 +22,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatDialog } from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { PaymentComponent } from './payment/payment.component';
 @NgModule({
   declarations: [
-    LandingPageComponent, DialogComponent, LoginComponent, CommonLayoutComponent, UserLayoutComponent, AdminViewComponent
+    LandingPageComponent, DialogComponent, LoginComponent, CommonLayoutComponent, UserLayoutComponent, AdminViewComponent, PaymentComponent
 
 
   ],
