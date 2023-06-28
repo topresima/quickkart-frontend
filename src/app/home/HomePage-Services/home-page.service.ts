@@ -31,7 +31,7 @@ export class HomePageService {
     pay={cardNumber:CardNumber1,CVV:cvv1,Expiry:ex,ProdCost:cost,ProdID:pid}
     console.log(pay)
 
-    let tempVar = this.http.post<boolean>(' http://localhost:7142/api/Function1',pay)
+    let tempVar = this.http.post<boolean>('http://localhost:7181/api/PaymentFunction',pay)
     return tempVar
   }
 
@@ -39,7 +39,7 @@ export class HomePageService {
   
     console.log(emailID)
 
-    let tempVar = this.http.get<boolean>('https://localhost:5001/api/customer/AddNewSubscriber?emailID='+emailID)
+    let tempVar = this.http.get<boolean>('https://quickcart-microservice.azurewebsites.net/api/SubscribeFunction?code=pIOIb80woJnaC8N77yQl1nSLxlDAvSa5mw9rli414zaoAzFuF3cBhA==&emailID='+emailID)
     console.log(tempVar)
     return tempVar
   }
@@ -51,7 +51,7 @@ export class HomePageService {
     user={emailID:userEmailID, password:userPassword,usertype:type};
     console.log(user)
 
-    let result=this.http.post<number>('https://login-quickcart.azurewebsites.net/api/LoginFunction?code=hYL_gxChWY6V4kVghX5SeOb_frdfhZ5G0ND7Bn8Jqck0AzFu4mauVA==',user)
+    let result=this.http.post<number>('https://login-service-qk.azurewebsites.net/api/LoginFunction?code=bVFKz69iYgDhe0W34IRoIn8S9FAoV_nWo-hHOY34OpvhAzFuULBixw==',user)
     return result
 
   }
@@ -61,7 +61,7 @@ export class HomePageService {
    
     formData.append('image', image);
     console.log(formData)
-    let result=this.http.post<Response>('https://quickkart-backend.azurewebsites.net/api/admin/upload',formData).pipe(catchError(this.errorHandler))
+    let result=this.http.post<Response>('https://localhost:5001/api/admin/upload',formData).pipe(catchError(this.errorHandler))
     console.log(result)
     return result
   }

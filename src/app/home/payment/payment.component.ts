@@ -24,12 +24,19 @@ export class PaymentComponent implements OnInit {
 backgroundImg:string='assets/backgroundImage.jpg'
   product:IProduct | undefined
   constructor(private active_route: ActivatedRoute,private service: HomePageService,notifierService: NotifierService){ 
+    
+    
+    
     this.id = active_route.snapshot.params['id']
     this.price = active_route.snapshot.params['price']
     this.name = active_route.snapshot.params['name']
     this.notifier = notifierService;
 
     console.log(this.name)
+    console.log(this.id)
+    console.log(this.price)
+ 
+
   }
 
   ngOnInit(): void {
@@ -39,7 +46,8 @@ backgroundImg:string='assets/backgroundImage.jpg'
 
 
   Buy(f:NgForm){
-    this.service.MakePayment(f.value.CardNumber,f.value.CVV, f.value.Expiry, this.id, this.price).subscribe(
+    console.log(f.value.cardNumber,f.value.cvv, f.value.expiry, this.id, this.price)
+    this.service.MakePayment(f.value.cardNumber,f.value.cvv, f.value.expiry, this.id, this.price).subscribe(
       res => {
        
         console.log(res);

@@ -10,18 +10,25 @@
         <p style="color:red ;">{{timeLeft}} Seconds Left....</p> 
 <form #loginForm="ngForm" (ngSubmit)="Buy(loginForm)">
     <br>
-    <mat-form-field appearance="fill">
-        <input type="text" value={{name}} matInput
-        ngModel>
-    </mat-form-field><br>
-    <mat-form-field appearance="fill">
-        <input type="text" value= {{price}} matInput
-        ngModel>
-    </mat-form-field><br>
+    <div class="form-group">
+        <mat-form-field appearance="fill">
+            <input type="text" value={{name}} matInput
+            ngModel>
+        </mat-form-field><br>
+    </div>
+    
+        <mat-form-field appearance="fill">
+        <div class="form-group">
+            <input type="text" value= {{price}} matInput
+            ngModel>
+        </div>
+        </mat-form-field><br>
+    
+
         <mat-form-field appearance="fill">
             <mat-label>Card Number</mat-label>
             <input type="text" name="cardNumber" matInput
-            ngModel maxlength="10">
+             maxlength="10" ngModel>
         </mat-form-field><br>
         <mat-form-field appearance="fill">
             <mat-label>CVV</mat-label>
